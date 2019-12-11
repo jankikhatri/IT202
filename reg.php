@@ -92,8 +92,8 @@ input { border: 1px solid black; }
 <!-- Add dropdown element (something specific to your project) -->
 <select name="dd" id="mySelectId">
 	<option value="-1">Select One</option>
-	<option value="0">Zero</option>
-	<option value="1">One</option>
+	<option value="0">User</option>
+	<option value="1">Admin</option>
 </select>
 <input type="submit" value="Try it"/>
 </form>
