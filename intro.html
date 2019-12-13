@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	function queryParam(){
+		var params = new URLSearchParams(location.search);
+		if(params.has('page')){
+			var page = params.get('page');
+			var ele = document.getElementById(page);
+			if(ele){
+				let home = document.getElementById('home');
+				let about = document.getElementById('about');
+				home.style.display="none";
+				about.style.display = "none";
+				ele.style.display = "block";
+			}
+		}
+		else{
+			let home = document.getElementById('home');
+			home.style.display = "block";
+			let about = document.getElementById('about');
+			about.style.display=  "none";
+		}
+	}
+</script>
+</head>
+<body onload="queryParam();">
+	<header>
+		<nav> 
+			<a href="?page=home">Home</a> |
+			<a href="?page=about">About</a>
+			<!--Create route for Home-->
+			<!--Create route for About-->
+		</nav>
+	</header>
+	<div id="home">
+		<h1><center><br> Welcome!! </center><h1>
+    <h2><center><br><br>This is the Home Page <br><br> You can now make lists anywhere anytime!!</center></h2><br><br><br>
+	</div>
+	<div id="about">
+		<section>
+			<h1>About</h1>
+			<h3>Here's a story of how I decided to do a project of TODO Lists</h3> <br><br><br>
+		</section>
+	</div>
+	<footer>
+    <p>Posted by: Janki Khatri</p>
+    <p>Contact Information: +1234-567-890 | <a href="mailto:someone@example.com">someone@example.com</a></p>
+  </footer>
+</body>
+</html>
