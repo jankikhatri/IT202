@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>TO-Do List Manager</title>
+  <style>
+    body {
+      text-align: center;
+    }
+    
+  </style>
+</head>
+
+<body>
+  <button type="submit" action="index.html" style="float:right">Logout</button>
+  <h1>Welcome to To-Do List Manager</h1>
+  
+  <h2>Make a new List</h2>
+  
+  <form method="POST" text-align="center">
+    TODO title:<input type="text" name="todoTitle">
+    TODO Description:<input type="text" name="todoDescription">
+    <button type="submit" name="submit"> Add Task</button>
+	</form><br><br>
+ 
+  
+</body>
+</html>
+
+<?php
+if(isset($_POST[‘submit’])) {
+    $title = $_POST[‘todoTitle’];
+    $description = $_POST[‘todoDescription’];
+    
+  }
+try{
+  require('config.php');
+  $conn_string = "mysql:host=$host;dbname=$database;charset=utf8mb4";
+	$db = new PDO($conn_string, $username, $password);
+ $query = "INSERT INTO todotasks(todoTitle, todoDescription, date) VALUES ('$title', '$description', now())";
+ $stmt = $db->prepare($query);
+	$r = $stmt->execute();
+  echo “you filled title “ . $title . "and description “ . $description;
+}
+  
+?>
